@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Subscription} from "rxjs";
-import {environment} from "../../../environments/environment";
-import {UserDataService} from "../../../services/user-data.service";
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core'
+import { Subscription } from 'rxjs'
+import { environment } from '../../../environments/environment'
+import { UserDataService } from '../../../services/user-data.service'
+import { Router } from '@angular/router'
 import {
   MatFormFieldModule,
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
@@ -11,21 +11,16 @@ import {
 @Component({
   selector: 'app-formulaire',
   templateUrl: './formulaire.component.html',
-  styleUrls: ['./formulaire.component.css']
+  styleUrls: ['./formulaire.component.css'],
 })
 export class FormulaireComponent implements OnInit {
-
   sub = new Subscription()
   customers: any
-  urls: string[] = [];
+  urls: string[] = []
 
-  selectedFile!: File ;
+  selectedFile!: File
 
-
-
-
-  constructor(private route: Router ,
-              private userData: UserDataService) { }
+  constructor(private route: Router, private userData: UserDataService) {}
 
   ngOnInit(): void {
     this.sub.add(
@@ -35,67 +30,49 @@ export class FormulaireComponent implements OnInit {
     )
   }
 
-//envoi des données du formulaire
-  getCustomersFormData(formData: any):void {
-    const postData = new FormData();
-    postData.append('name', formData.name);
-    postData.append('surname', formData.surname);
-    postData.append('destination', formData.destination);
-    postData.append('shipper', formData.shipper);
-    postData.append('shipperPhone', formData.shipperPhone);
-    postData.append('recipient', formData.recipient);
-    postData.append('recipientPhone', formData.recipientPhone);
-    postData.append('description', formData.description);
-    postData.append('quantity', formData.quantity);
-
-
-    for (let i = 0; i < this.urls.length; i++) {
-      postData.append('pictures', this.urls[i]);
-      console.log(this.urls[i])
-    }
-
-
-    this.userData.saveCustomer({ data: formData }).subscribe((result) => {
-    })
+  //envoi des données du formulaire
+  getCustomersFormData(formData: any) {
+    //console.warn(data)
+    //toujours mettre la data dans un objet avant l envoi vers strapi
+    this.userData.saveCustomer({ data: formData }).subscribe((result) => {})
   }
 
-
-  next(){
-    this.route.navigate(['colis'])
-      .then(nav => {
-        console.log(nav); // true if navigation is successful
-      }, err => {
+  next() {
+    this.route.navigate(['colis']).then(
+      (nav) => {
+        console.log(nav) // true if navigation is successful
+      },
+      (err) => {
         console.log(err) // when there's an error
-      });
+      },
+    )
   }
 
-//afficher les images uploadées
+  //afficher les images uploadées
   onselect(event: any): void {
     if (event.target.files) {
       for (let i = 0; i < event.target.files.length; i++) {
-        const file = event.target.files[i];
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
+        const file = event.target.files[i]
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
         reader.onload = () => {
-          this.urls.push(reader.result as string);
-        };
+          this.urls.push(reader.result as string)
+        }
       }
     }
   }
 
-
-  onFileSelected(event: any){
-    this.selectedFile = event.target.result;
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.result
     console.log(this.selectedFile)
   }
 
   //
-  success(){
-    alert("Vos informations ont bien été enrégistrés !!!!")
+  success() {
+    alert('Vos informations ont bien été enrégistrés !!!!')
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe()
   }
-
 }
