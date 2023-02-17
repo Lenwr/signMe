@@ -34,18 +34,9 @@ export class FormulaireComponent implements OnInit {
   sendCustomersFormData(formData: any) {
     //console.warn(data)
     //toujours mettre la data dans un objet avant l envoi vers strapi
-    this.userData.saveCustomer({ data: formData }).subscribe((result) => {})
-  }
-
-  next() {
-    this.route.navigate(['colis']).then(
-      (nav) => {
-        console.log(nav) // true if navigation is successful
-      },
-      (err) => {
-        console.log(err) // when there's an error
-      },
-    )
+    this.userData.saveCustomer({ data: formData }).subscribe((result) => {
+      console.log(result)
+    })
   }
 
   //afficher les images uploadées
