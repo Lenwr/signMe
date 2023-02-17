@@ -20,7 +20,6 @@ export class FormulaireComponent implements OnInit {
   urls: string[] = [];
 
   selectedFile!: File ;
-  URL = environment.apiUrl+'/clients'
 
 
 
