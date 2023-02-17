@@ -6,9 +6,10 @@
       <label for="nom">Nom</label>
       <input
         ngModel
-        name="sipperName"
+        name="shipperName"
         type="text"
         class="form-control"
+        h
         id="nom"
         placeholder="Nom"
       />
@@ -26,10 +27,10 @@
         />
       </div>
       <div class="form-group">
-        <label for="shipper">Adresse</label>
+        <label for="shipperAddress">Adresse</label>
         <input
           ngModel
-          name="shipper"
+          name="shipperAddress"
           type="text"
           class="form-control"
           id="shipper"
@@ -40,7 +41,7 @@
           ngModel
           name="shipperPhone"
           type="number"
-          value="0000000000"
+          value=""
           class="form-control"
           id="shipperPhone"
         />
@@ -71,10 +72,10 @@
           />
         </div>
         <div class="form-group">
-          <label for="recipient">Adresse</label>
+          <label for="recipientAddress">Adresse</label>
           <input
             ngModel
-            name="recipient"
+            name="recipientAddress"
             type="text"
             class="form-control"
             id="recipient"
@@ -85,7 +86,7 @@
             ngModel
             name="recipientPhone"
             type="number"
-            value="0000000000"
+            value=""
             class="form-control"
             id="recipientPhone"
           />
@@ -121,12 +122,12 @@
               <label for="nombreColi">Nombre de colis</label>
               <input
                 ngModel
-                name="quantity"
+                name="packageQuantity"
                 type="number"
                 id="nombreColi"
                 class="form-control"
                 placeholder="Vous avez combien de colis ?"
-                [value]="0"
+                [value]=""
               />
             </div>
             <label for="image">Ajouter une photo</label>
