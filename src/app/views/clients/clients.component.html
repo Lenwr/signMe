@@ -1,0 +1,36 @@
+<div *ngIf="selectedClient; then clientDetails; else clients"></div>
+
+<ng-template #clients>
+  <table mat-table [dataSource]="clients$">
+    <ng-container matColumnDef="Nom">
+      <th mat-header-cell *matHeaderCellDef>Nom</th>
+      <td mat-cell *matCellDef="let user">{{ user.shipperName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Prénoms">
+      <th mat-header-cell *matHeaderCellDef>Prénoms</th>
+      <td mat-cell *matCellDef="let user">{{ user.shipperSurname }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Destination">
+      <th mat-header-cell *matHeaderCellDef>Destination</th>
+      <td mat-cell *matCellDef="let user">{{ user.destination }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Colis">
+      <th mat-header-cell *matHeaderCellDef>Colis</th>
+      <td mat-cell *matCellDef="let user">{{ user.packageQuantity }}</td>
+    </ng-container>
+    <ng-container matColumnDef="VoirPlus">
+      <th mat-header-cell *matHeaderCellDef>VoirPlus</th>
+      <td mat-cell *matCellDef="let user">
+        <mat-icon (click)="voirPlus(user)">chevron_right</mat-icon>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</ng-template>
+
+<ng-template #clientDetails>
+  <app-client-details [user]="selectedClient"></app-client-details>
+</ng-template>
+
+

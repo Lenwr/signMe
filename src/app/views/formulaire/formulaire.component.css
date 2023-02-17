@@ -1,0 +1,12 @@
+.image{
+  display: flex;
+  flex-wrap: wrap;
+}
+img{
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+}
+label{
+  margin-top: 10px;
+}

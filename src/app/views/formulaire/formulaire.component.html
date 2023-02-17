@@ -1,0 +1,163 @@
+<div class="container">
+  <form #usersForm="ngForm" (ngSubmit)="getCustomersFormData(usersForm.value)">
+    <h1>Formulaire d'enrégistrement</h1>
+    <div class="col">
+      <h2 class="expediteur">EXPEDITEUR</h2>
+      <label for="nom">Nom</label>
+      <input
+        ngModel
+        name="sipperName"
+        type="text"
+        class="form-control"
+        id="nom"
+        placeholder="Nom"
+      />
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="prenom">Prenoms</label>
+        <input
+          ngModel
+          name="shipperSurname"
+          type="text"
+          id="prenom"
+          class="form-control"
+          placeholder="Prenoms"
+        />
+      </div>
+      <div class="form-group">
+        <label for="shipper">Adresse</label>
+        <input
+          ngModel
+          name="shipper"
+          type="text"
+          class="form-control"
+          id="shipper"
+          placeholder="expediteur"
+        />
+        <label for="shipperPhone">Téléphone</label>
+        <input
+          ngModel
+          name="shipperPhone"
+          type="number"
+          value="0000000000"
+          class="form-control"
+          id="shipperPhone"
+        />
+      </div>
+
+      <div class="col">
+        <h2 class="expediteur">DESTINATAIRE</h2>
+        <label for="nom">Nom</label>
+        <input
+          ngModel
+          name="recipientName"
+          type="text"
+          class="form-control"
+          id="nom"
+          placeholder="Nom"
+        />
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="prenom">Prenoms</label>
+          <input
+            ngModel
+            name="recipientSurname"
+            type="text"
+            id="prenom"
+            class="form-control"
+            placeholder="Prenoms"
+          />
+        </div>
+        <div class="form-group">
+          <label for="recipient">Adresse</label>
+          <input
+            ngModel
+            name="recipient"
+            type="text"
+            class="form-control"
+            id="recipient"
+            placeholder="destinataire"
+          />
+          <label for="recipientPhone">Téléphone</label>
+          <input
+            ngModel
+            name="recipientPhone"
+            type="number"
+            value="0000000000"
+            class="form-control"
+            id="recipientPhone"
+          />
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <label for="Destination">Destination</label>
+            <input
+              ngModel
+              name="destination"
+              type="text"
+              id="destination"
+              class="form-control"
+              placeholder="Pays de destination"
+            />
+          </div>
+        </div>
+
+        <div class="col">
+          <h2 class="destinataire">Mes colis</h2>
+
+          <div class="col">
+            <label for="coli">Descriptif colis</label>
+            <textarea
+              ngModel
+              name="description"
+              class="form-control"
+              id="coli"
+              placeholder="Quelles sont les colis que vous avez amenez ?"
+              rows="4"
+            ></textarea>
+            <div class="col">
+              <label for="nombreColi">Nombre de colis</label>
+              <input
+                ngModel
+                name="quantity"
+                type="number"
+                id="nombreColi"
+                class="form-control"
+                placeholder="Vous avez combien de colis ?"
+                [value]="0"
+              />
+            </div>
+            <label for="image">Ajouter une photo</label>
+
+            <input
+              class="form-control form-control-sm"
+              id="image"
+              type="file"
+              (change)="onselect($event)"
+              multiple
+            />
+            <br />
+
+            <div class="image">
+              <input
+                id="images"
+                type="image"
+                accept="image/*"
+                ngModel
+                name="pictures"
+                *ngFor="let url of urls"
+                [src]="url"
+                (click)="onFileSelected($event)"
+              />
+            </div>
+          </div>
+        </div>
+        <button type="submit" (click)="success()" class="btn btn-primary">
+          Soumettre
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

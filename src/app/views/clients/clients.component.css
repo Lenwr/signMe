@@ -1,0 +1,43 @@
+.container{
+  display: flex;
+
+}
+div{
+  margin-top: 10px;
+}
+button{
+  margin-top: 20px;
+}
+.image{
+  display: flex;
+  flex-wrap: wrap;
+}
+.image input{
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+}
+label{
+  margin-top: 10px;
+}
+.formulaire{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+
+}
+.containers{
+  display: flex;
+  justify-items: center;
+}
+.img{
+  width: 150px;
+  height: 150px;
+}
+table {
+  width: 100%;
+}
+
+
+
+

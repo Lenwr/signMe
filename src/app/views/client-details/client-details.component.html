@@ -1,0 +1,56 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <h1>EXPEDITEUR</h1>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="expéditeur">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>
+          {{ user.shipperName | uppercase }}
+          {{ user.shipperSurnam | uppercase }}
+        </mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Expéditeur : {{ user.shipperAddress | uppercase }}</p>
+      <p>Expéditeur :{{ user.shipperPhone }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+      <h1>DESTINATAIRE</h1>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="destinataire">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>
+          {{ user.recipientName | uppercase }}
+          {{ user.recipientSurname | uppercase }}
+        </mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Destinataire : {{ user.recipientAddress | uppercase }}</p>
+      <p>Destinataire :{{ user.shipperPhone }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="colis">
+    <mat-card-content>
+      <h1>COLIS : {{ user.packageQuantity }}</h1>
+    </mat-card-content>
+  </mat-card>
+  <div class="imageCard" *ngFor="let picture of user.pictures.data">
+    <img
+      class="images"
+      (click)="openPicture()"
+      [src]="picture.attributes.url"
+    />
+  </div>
+</div>
