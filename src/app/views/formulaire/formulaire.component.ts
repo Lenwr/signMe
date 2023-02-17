@@ -31,7 +31,7 @@ export class FormulaireComponent implements OnInit {
   }
 
   //envoi des données du formulaire
-  getCustomersFormData(formData: any) {
+  sendCustomersFormData(formData: any) {
     //console.warn(data)
     //toujours mettre la data dans un objet avant l envoi vers strapi
     this.userData.saveCustomer({ data: formData }).subscribe((result) => {})
