@@ -8,7 +8,6 @@ import {Apollo, gql} from "apollo-angular";
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
-  img : string = "https://res.cloudinary.com/dtkunr8ef/image/upload/v1676363390/54719e63e7ee1_72383e40fd.jpg"
   displayedColumns: string [] = ['Nom', 'Prénoms','Destination','Colis','VoirPlus'];
   more: boolean = false
   selectedClient: any
