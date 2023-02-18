@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://serversignme-production.up.railway.app/api',
+  apiUrl: 'http://serversignme-production.up.railway.app/api',
 }
