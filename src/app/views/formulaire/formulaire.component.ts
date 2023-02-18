@@ -7,6 +7,7 @@ import {
   MatFormFieldModule,
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field'
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-formulaire',
@@ -17,10 +18,16 @@ export class FormulaireComponent implements OnInit {
   sub = new Subscription()
   customers: any
   urls: string[] = []
+  URL = environment.apiUrl + '/clients'
 
   selectedFile!: File
+  http: any
 
-  constructor(private route: Router, private userData: UserDataService) {}
+  constructor(
+    private route: Router,
+    private userData: UserDataService,
+    http: HttpClient,
+  ) {}
 
   ngOnInit(): void {
     this.sub.add(
@@ -30,14 +37,38 @@ export class FormulaireComponent implements OnInit {
     )
   }
 
-  //envoi des données du formulaire
+  // envoi des données du formulaire
   sendCustomersFormData(formData: any) {
-    //console.warn(data)
-    //toujours mettre la data dans un objet avant l envoi vers strapi
-    this.userData.saveCustomer({ data: formData }).subscribe((result) => {
-      console.log(result)
+  // console.warn(data)
+  // toujours mettre la data dans un objet avant l envoi vers strapi
+   this.userData.saveCustomer({ data: formData }).subscribe((result) => {
+    console.log(result)
     })
   }
+
+  // sendCustomersFormData(formData: any) {
+  //   const postData = new FormData()
+  //   postData.append('shipperName', formData.shipperName)
+  //   postData.append('shipperSurname', formData.shipperSurname)
+  //   postData.append('destination', formData.destination)
+  //   postData.append('shipperAddress', formData.shipperAddress)
+  //   postData.append('shipperPhone', formData.shipperPhone)
+  //   postData.append('recipientName', formData.recipientName)
+  //   postData.append('recipientSurname', formData.recipientSurname)
+  //   postData.append('recipientPhone', formData.recipientPhone)
+  //   postData.append('recipientAddress', formData.recipientAddress)
+  //   postData.append('packageDescription', formData.packageDescription)
+  //   postData.append('packageQuantity', formData.packageQuantity)
+  //   for (let i = 0; i < this.urls.length; i++) {
+  //     postData.append('pictures', this.urls[i])
+  //   }
+  //   this.http.post(this.URL, postData).subscribe((response: any) => {
+  //     console.log(postData)
+  //     console.log(response)
+  //     // Faites quelque chose après la réussite de la requête
+  //     alert('votre coli a été enregistré')
+  //   })
+  // }
 
   //afficher les images uploadées
   onselect(event: any): void {
