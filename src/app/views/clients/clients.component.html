@@ -4,19 +4,19 @@
   <table mat-table [dataSource]="myData">
     <ng-container matColumnDef="Nom">
       <th mat-header-cell *matHeaderCellDef>Nom</th>
-      <td mat-cell *matCellDef="let user">{{ user.shipperName }}</td>
+      <td mat-cell *matCellDef="let user">{{ user.attributes.shipperName }}</td>
     </ng-container>
     <ng-container matColumnDef="Prénoms">
       <th mat-header-cell *matHeaderCellDef>Prénoms</th>
-      <td mat-cell *matCellDef="let user">{{ user.shipperSurname }}</td>
+      <td mat-cell *matCellDef="let user">{{ user.attributes.shipperSurname }}</td>
     </ng-container>
     <ng-container matColumnDef="Destination">
       <th mat-header-cell *matHeaderCellDef>Destination</th>
-      <td mat-cell *matCellDef="let user">{{ user.destination }}</td>
+      <td mat-cell *matCellDef="let user">{{ user.attributes.destination }}</td>
     </ng-container>
     <ng-container matColumnDef="Colis">
       <th mat-header-cell *matHeaderCellDef>Colis</th>
-      <td mat-cell *matCellDef="let user">{{ user.packageQuantity }}</td>
+      <td mat-cell *matCellDef="let user">{{ user.attributes.packageQuantity }}</td>
     </ng-container>
     <ng-container matColumnDef="VoirPlus">
       <th mat-header-cell *matHeaderCellDef>VoirPlus</th>
