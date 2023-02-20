@@ -18,10 +18,9 @@ export class FormulaireComponent implements OnInit {
   sub = new Subscription()
   customers: any
   urls: string[] = []
-  URL = environment.apiUrl + '/clients'
+  url = environment.apiUrl + '/clients'
 
   selectedFile!: File
-  http: any
 
   constructor(
     private route: Router,
@@ -38,13 +37,15 @@ export class FormulaireComponent implements OnInit {
   }
 
   // envoi des données du formulaire
-  sendCustomersFormData(formData: any) {
   // console.warn(data)
   // toujours mettre la data dans un objet avant l envoi vers strapi
+
+  sendCustomersFormData(formData: any) {
    this.userData.saveCustomer({ data: formData }).subscribe((result) => {
     console.log(result)
     })
   }
+
 
   // sendCustomersFormData(formData: any) {
   //   const postData = new FormData()

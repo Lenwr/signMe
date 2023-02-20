@@ -6,8 +6,8 @@ import {environment} from "../environments/environment"
   providedIn: 'root'
 })
 export class UserDataService {
-  URL = environment.apiUrl + '/clients'
-  url = environment.apiUrl + '/clients?populate=*'
+  url = environment.apiUrl + '/clients'
+  URL = environment.apiUrl + '/clients?populate=*'
   userUrl = environment.apiUrl + '/clients:id'
 
   constructor(private http: HttpClient) { }
@@ -15,11 +15,14 @@ export class UserDataService {
   customers() {
     return this.http.get(this.url)
   }
+  customersPop(){
+    return this.http.get(this.URL)
+  }
 
   customer() {
     return this.http.get(this.userUrl)
   }
   saveCustomer(data : any){
-    return this.http.post<any>(this.URL, data)
+    return this.http.post<any>(this.url, data)
   }
 }

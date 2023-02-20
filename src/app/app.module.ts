@@ -17,8 +17,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { ClientDetailsComponent } from './views/client-details/client-details.component'
 import { MatCardModule } from '@angular/material/card'
 import { MatGridListModule } from '@angular/material/grid-list'
-import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select'
 import {
   MatFormFieldModule,
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
@@ -47,7 +47,7 @@ import {
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [
     {
@@ -56,7 +56,7 @@ import {
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: 'http://localhost:1337/graphql',
+            uri: 'https://localhost:1337/graphql',
           }),
         }
       },
