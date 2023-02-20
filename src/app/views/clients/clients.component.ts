@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {map} from "rxjs";
 import {Apollo, gql} from "apollo-angular";
+import {UserDataService} from "../../../services/user-data.service";
 
 @Component({
   selector: 'app-clients',
@@ -11,16 +12,18 @@ export class ClientsComponent implements OnInit {
   displayedColumns: string [] = ['Nom', 'Prénoms','Destination','Colis','VoirPlus'];
   more: boolean = false
   selectedClient: any
+  myData : any
 
 
   constructor(private apollo: Apollo,
+              private data: UserDataService
               ) {}
 
   ngOnInit(): void {
-  }
-  clients$ = this.apollo
-    .watchQuery({
-      query: gql`
+
+    let clients$ = this.apollo
+      .watchQuery({
+        query: gql`
       query {
         clients {
           data {
@@ -53,15 +56,19 @@ export class ClientsComponent implements OnInit {
         }
       }
       `,
-    })
-    .valueChanges.pipe(
-      map((result:any) => result.data.clients.data.map((c:any) => c.attributes))
-    );
+      })
+      .valueChanges.pipe(
+        map((result: any) => result.data.clients.data.map((c: any) => c.attributes))
+      );
+
+    this.myData = clients$
+
+  }
 
     voirPlus(user: any){
       this.selectedClient = user
     }
 
-    
+
 
 }

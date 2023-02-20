@@ -1,7 +1,7 @@
 <div *ngIf="selectedClient; then clientDetails; else clients"></div>
 
 <ng-template #clients>
-  <table mat-table [dataSource]="clients$">
+  <table mat-table [dataSource]="myData">
     <ng-container matColumnDef="Nom">
       <th mat-header-cell *matHeaderCellDef>Nom</th>
       <td mat-cell *matCellDef="let user">{{ user.shipperName }}</td>
