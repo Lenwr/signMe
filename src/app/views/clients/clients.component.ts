@@ -20,10 +20,17 @@ export class ClientsComponent implements OnInit {
               ) {}
 
   ngOnInit(): void {
+    this.data.customersPop().subscribe((result:any)=>{
+      this.myData = result.data
+    })
 
-    let clients$ = this.apollo
-      .watchQuery({
-        query: gql`
+  }
+
+
+
+  clients$ = this.apollo
+    .watchQuery({
+      query: gql`
       query {
         clients {
           data {
@@ -56,14 +63,10 @@ export class ClientsComponent implements OnInit {
         }
       }
       `,
-      })
-      .valueChanges.pipe(
-        map((result: any) => result.data.clients.data.map((c: any) => c.attributes))
-      );
-
-    this.myData = clients$
-
-  }
+    })
+    .valueChanges.pipe(
+      map((result:any) => result.data.clients.data.map((c:any) => c.attributes))
+    );
 
     voirPlus(user: any){
       this.selectedClient = user
