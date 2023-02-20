@@ -46,7 +46,7 @@
       <h1>COLIS : {{ user.attributes.packageQuantity }}</h1>
     </mat-card-content>
   </mat-card>
-  <div class="imageCard" *ngFor="let picture of user.pictures.data">
+  <div class="imageCard" *ngFor="let picture of user.attributes.pictures.data">
     <img
       class="images"
       (click)="openPicture()"
