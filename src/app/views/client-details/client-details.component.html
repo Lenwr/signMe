@@ -1,26 +1,4 @@
 <div class="container">
-    <body>
-  <mat-card>
-    <mat-card-content>
-      <h1>EXPEDITEUR</h1>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="expéditeur">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>
-          {{ user.attributes.shipperName | uppercase }}
-          {{ user.attributes.shipperSurname | uppercase }}
-        </mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Expéditeur : {{ user.attributes.shipperAddress | uppercase }}</p>
-      <p>Expéditeur :{{ user.attributes.shipperPhone }}</p>
-    </mat-card-content>
-  </mat-card>
-
   <mat-card>
     <mat-card-content>
       <h1>DESTINATAIRE</h1>
@@ -42,6 +20,27 @@
     </mat-card-content>
   </mat-card>
 
+  <mat-card>
+    <mat-card-content>
+      <h1>EXPEDITEUR</h1>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="expéditeur">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>
+          {{ user.attributes.shipperName | uppercase }}
+          {{ user.attributes.shipperSurname | uppercase }}
+        </mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Expéditeur : {{ user.attributes.shipperAddress | uppercase }}</p>
+      <p>Expéditeur :{{ user.attributes.shipperPhone }}</p>
+    </mat-card-content>
+  </mat-card>
+
   <mat-card class="colis">
     <mat-card-content>
       <h1>COLIS : {{ user.attributes.packageQuantity }}</h1>
@@ -52,10 +51,10 @@
       class="images"
       (click)="openPicture()"
       [src]="picture.attributes.url"
-     />
-    </div>
+    />
+  </div>
 
-  <button mat-raised-button (click)="generatePdf()"  color="primary">download</button>
-    </body>
+  <button mat-raised-button (click)="generatePdf()" color="primary">
+    download
+  </button>
 </div>
-
