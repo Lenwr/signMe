@@ -23,6 +23,11 @@ import {
   MatFormFieldModule,
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field'
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { NavComponent } from './views/nav/nav.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+
 
 @NgModule({
   declarations: [
@@ -30,6 +35,7 @@ import {
     FormulaireComponent,
     ClientsComponent,
     ClientDetailsComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +54,9 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatToolbarModule,
   ],
   providers: [
     {

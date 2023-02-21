@@ -1,3 +1,5 @@
+
+
 <div *ngIf="selectedClient; then clientDetails; else clients"></div>
 
 <ng-template #clients>
@@ -27,8 +29,16 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+
+
+
+
 </ng-template>
 
 <ng-template #clientDetails>
+  <div class="clientsDetails">
   <app-client-details [user]="selectedClient"></app-client-details>
+  <button mat-raised-button (click)="retour()" color="primary">Retour</button>
+  </div>
 </ng-template>
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {map} from "rxjs";
 import {Apollo, gql} from "apollo-angular";
 import {UserDataService} from "../../../services/user-data.service";
+import {PdfServiceService} from "../../../services/pdfService.service";
 
 @Component({
   selector: 'app-clients',
@@ -16,7 +17,7 @@ export class ClientsComponent implements OnInit {
 
 
   constructor(private apollo: Apollo,
-              private data: UserDataService
+              private data: UserDataService,
               ) {}
 
   ngOnInit(): void {
@@ -25,8 +26,6 @@ export class ClientsComponent implements OnInit {
     })
 
   }
-
-
 
   clients$ = this.apollo
     .watchQuery({
@@ -71,6 +70,10 @@ export class ClientsComponent implements OnInit {
     voirPlus(user: any){
       this.selectedClient = user
     }
+
+  retour(){
+       this.selectedClient = false
+  }
 
 
 

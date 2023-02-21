@@ -3,7 +3,7 @@
    justify-content: center;
    margin-top: 40px;
    flex-direction: column;
-   
+
 }
 .expéditeur {
     max-width: 400px;
@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
   }
    .imageCard{
     display: flex;
@@ -35,4 +36,3 @@
     margin: 10px;
     border-radius: 10px;
   }
- 

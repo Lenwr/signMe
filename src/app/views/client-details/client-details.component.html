@@ -1,4 +1,6 @@
 <div class="container">
+<div id="contenu-pdf">
+    <body>
   <mat-card>
     <mat-card-content>
       <h1>EXPEDITEUR</h1>
@@ -51,6 +53,12 @@
       class="images"
       (click)="openPicture()"
       [src]="picture.attributes.url"
-    />
-  </div>
+     />
+    </div>
+
+  <button mat-raised-button (click)="generatePdf()"  color="primary">download</button>
+    </body>
 </div>
+
+</div>
+

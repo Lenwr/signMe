@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {PdfServiceService} from "../../../services/pdfService.service";
+
 
 @Component({
   selector: 'app-client-details',
@@ -9,13 +11,17 @@ export class ClientDetailsComponent implements OnInit {
 
   @Input() user?: any
 
-  constructor() { }
+  constructor( private pdfService : PdfServiceService) { }
 
   ngOnInit(): void {
   }
 
   openPicture(){
-    
+
+  }
+
+  generatePdf(): void {
+    this.pdfService.generatePdf();
   }
 
 }

@@ -38,6 +38,16 @@ table {
   width: 100%;
 }
 
+.clientsDetails{
+  display: flex;
+  flex-direction: column;
+}
+button{
+  width: 150px ;
+  align-self: center;
+}
+
+
 
 
 
