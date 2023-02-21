@@ -5,19 +5,7 @@
    flex-direction: column;
 
 }
-.expéditeur {
-  max-width: 400px;
-  background-color: white;
-  color: black;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  }
-  
-
-  .destinataire {
+  .card {
     max-width: 400px;
     background-color: white;
     color: black;
@@ -25,8 +13,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+ 
   }
+
+  mat-card-content{
+  margin: 20px;
+  }
+
+
    .imageCard{
     display: flex;
     flex-wrap: wrap;

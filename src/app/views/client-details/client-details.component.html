@@ -4,49 +4,7 @@
       <h1>DESTINATAIRE</h1>
     </mat-card-content>
   </mat-card>
-  <mat-card class="destinataire">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>
-          {{ user.attributes.recipientName | uppercase }}
-          {{ user.attributes.recipientSurname | uppercase }}
-        </mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Destinataire : {{ user.attributes.recipientAddress | uppercase }}</p>
-      <p>Destinataire :{{ user.attributes.shipperPhone }}</p>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card>
-    <mat-card-content>
-      <h1>DESTINATAIRE</h1>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="destinataire">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>
-          {{ user.attributes.recipientName | uppercase }}
-          {{ user.attributes.recipientSurname | uppercase }}
-        </mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Destinataire : {{ user.attributes.recipientAddress | uppercase }}</p>
-      <p>Destinataire :{{ user.attributes.shipperPhone }}</p>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card>
-    <mat-card-content>
-      <h1>EXPEDITEUR</h1>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="expéditeur">
+  <mat-card class="card">
     <mat-card-header>
       <mat-card-title-group>
         <mat-card-title>
@@ -57,8 +15,29 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <p>Expéditeur : {{ user.attributes.shipperAddress | uppercase }}</p>
-      <p>Expéditeur :{{ user.attributes.shipperPhone }}</p>
+      <p>Destinataire : {{ user.attributes.shipperAddress | uppercase }}</p>
+      <p>Destinataire :{{ user.attributes.shipperPhone }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+      <h1>EXPEDITEUR</h1>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>
+          {{ user.attributes.recipientName | uppercase }}
+          {{ user.attributes.recipientSurname | uppercase }}
+        </mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Destinataire : {{ user.attributes.recipientAddress | uppercase }}</p>
+      <p>Destinataire :{{ user.attributes.recipientPhone }}</p>
     </mat-card-content>
   </mat-card>
 
