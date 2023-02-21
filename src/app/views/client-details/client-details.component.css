@@ -6,14 +6,16 @@
 
 }
 .expéditeur {
-    max-width: 400px;
-    background-color: white;
-    color: black;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  max-width: 400px;
+  background-color: white;
+  color: black;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
   }
+  
 
   .destinataire {
     max-width: 400px;
