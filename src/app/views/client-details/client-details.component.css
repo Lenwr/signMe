@@ -32,3 +32,8 @@
     margin: 10px;
     border-radius: 10px;
   }
+button{
+  width: 150px ;
+  align-self: center;
+  margin-top: 28px;
+}
