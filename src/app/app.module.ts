@@ -6,7 +6,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { FormulaireComponent } from './views/formulaire/formulaire.component'
 import { ClientsComponent } from './views/clients/clients.component'
 import { RouterOutlet } from '@angular/router'
-import { FormsModule } from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { FormRoutingModule } from '../routes/form-routing.module'
 import { HttpClientModule } from '@angular/common/http'
 import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular'
@@ -57,6 +57,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

@@ -8,6 +8,11 @@ import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field'
 import { HttpClient } from '@angular/common/http'
+import { FormControl, Validators } from '@angular/forms'
+interface Choice {
+  name: string
+  img: string
+}
 
 @Component({
   selector: 'app-formulaire',
@@ -19,8 +24,8 @@ export class FormulaireComponent implements OnInit {
   customers: any
   urls: string[] = []
   url = environment.apiUrl + '/clients'
-
   selectedFile!: File
+  selectedForm = false
 
   constructor(
     private route: Router,
@@ -41,11 +46,10 @@ export class FormulaireComponent implements OnInit {
   // toujours mettre la data dans un objet avant l envoi vers strapi
 
   sendCustomersFormData(formData: any) {
-   this.userData.saveCustomer({ data: formData }).subscribe((result) => {
-    console.log(result)
+    this.userData.saveCustomer({ data: formData }).subscribe((result) => {
+      console.log(result)
     })
   }
-
 
   // sendCustomersFormData(formData: any) {
   //   const postData = new FormData()
@@ -94,6 +98,23 @@ export class FormulaireComponent implements OnInit {
   success() {
     alert('Vos informations ont bien été enrégistrés !!!!')
   }
+  submit() {
+    let choiceSubmit = document.getElementById('choice') as HTMLInputElement
+    if ((choiceSubmit.value = 'Livraison de Colis')) {
+      this.selectedForm = true
+    } else if ((choiceSubmit.value = 'Expedition de Colis')) {
+      this.selectedForm = false
+    }
+
+    console.log(choiceSubmit.value)
+  }
+
+  //choix formulaire
+  choiceControl = new FormControl<Choice | null>(null, Validators.required)
+  Choices: Choice[] = [
+    { name: 'Livraison de Colis', img: '/assets/icons/hinata.jpg' },
+    { name: 'Expedition de Colis', img: '/assets/icons/hinata.jpg' },
+  ]
 
   ngOnDestroy(): void {
     this.sub.unsubscribe()

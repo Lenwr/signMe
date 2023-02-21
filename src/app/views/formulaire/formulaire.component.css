@@ -10,3 +10,20 @@ img{
 label{
   margin-top: 10px;
 }
+.options{
+  background-color:darkgrey;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 100px;
+  align-items: center;
+}
+
+mat-label{
+  color: black
+}
+iframe{
+  width: 400px;
+  height: 400px;
+}
