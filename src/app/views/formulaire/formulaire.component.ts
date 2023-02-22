@@ -25,7 +25,8 @@ export class FormulaireComponent implements OnInit {
   urls: string[] = []
   url = environment.apiUrl + '/clients'
   selectedFile!: File
-  selectedForm = false
+  selectedForm: boolean = false
+  selectedForm2: boolean = false
 
   constructor(
     private route: Router,
@@ -99,14 +100,13 @@ export class FormulaireComponent implements OnInit {
     alert('Vos informations ont bien été enrégistrés !!!!')
   }
   submit() {
-    let choiceSubmit = document.getElementById('choice') as HTMLInputElement
-    if ((choiceSubmit.value = 'Livraison de Colis')) {
+    if (this.choiceControl.value?.name == 'Expedition de Colis') {
       this.selectedForm = true
-    } else if ((choiceSubmit.value = 'Expedition de Colis')) {
-      this.selectedForm = false
-    }
+    } else if (this.choiceControl.value?.name == 'Livraison de Colis') {
+      this.selectedForm2 = true
+    } else this.selectedForm = false
 
-    console.log(choiceSubmit.value)
+    console.log(this.choiceControl.value?.name)
   }
 
   //choix formulaire

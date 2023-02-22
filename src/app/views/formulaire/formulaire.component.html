@@ -8,8 +8,12 @@
     </mat-hint>
     <mat-form-field appearance="fill">
       <mat-label class="label">Choisir</mat-label>
-      <mat-select id="choice" [formControl]="choiceControl" required>
-        <mat-option *ngFor="let choice of Choices" [value]="choice">
+      <mat-select [formControl]="choiceControl" required>
+        <mat-option
+          id="choice1"
+          *ngFor="let choice of Choices"
+          [value]="choice"
+        >
           {{ choice.name }}
         </mat-option>
       </mat-select>
@@ -192,4 +196,6 @@
   </div>
 </ng-template>
 
-<ng-template #livraison></ng-template>
+<ng-template #livraison>
+  work !!!
+</ng-template>
