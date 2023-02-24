@@ -27,6 +27,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { NavComponent } from './views/nav/nav.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     ClientsComponent,
     ClientDetailsComponent,
     NavComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatSidenavModule,
     MatToolbarModule,
     ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

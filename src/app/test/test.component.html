@@ -1,0 +1,10 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+  <input
+    type="file"
+    name="image"
+    accept="image/*"
+    multiple
+    (change)="onFileSelected($event)"
+  />
+  <button type="submit">Envoyer</button>
+</form>
