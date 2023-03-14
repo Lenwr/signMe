@@ -1,0 +1,117 @@
+.global{
+    display: flex;
+    justify-content: center;
+  }
+  .container{
+    display: flex;
+   justify-content: center;
+    flex-direction: column;
+    width: 800px;
+  }
+  .pms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bl{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px ;
+  }
+  .aaronTravel {
+    border: solid;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .date{
+  display: flex;
+    justify-content: flex-end;
+  }
+  .headContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 800px;
+  
+  }
+  .headLeft{
+    border: solid;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+  }
+  .headRight{
+    border: solid;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+  
+  }
+  .table{
+    background: url("/src/assets/images/logo.png");
+    background-size: 800px;
+   
+  
+    width: 800px;
+    height: 600px ;
+    border:solid;
+    border-radius: 5px;
+    margin-top: 100px;
+  }
+  table,
+  td {
+    border: 1px solid #333;
+  }
+  
+  thead{
+    background-color: #333;
+    color: #fff;
+  }
+  .designation{
+    width: 600px;
+  }
+  .price{
+    width: 200px;
+  }
+  .footContainer{
+    width: 800px;
+    border: solid;
+    margin-top: 30px;
+    height: 200px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .observation{
+    border: solid;
+    padding: 10px;
+    border-radius: 5px;
+    width: 500px;
+    margin: 10px;
+  }
+  .cachet{
+    border: solid;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    margin: 10px;
+  
+  }
+  .cachet h3{
+    padding: 5px;
+  }
+  
+  button{
+    margin: 40px;
+  }
+  .global{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+  }
+  .global button{
+    width: 300px;
+  }
+  

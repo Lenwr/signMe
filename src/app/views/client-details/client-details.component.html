@@ -1,7 +1,14 @@
+<div *ngIf="switch; then bl; else clientDetails"></div>
+
+
+
+<ng-template  #clientDetails >
+
+
 <div class="container">
   <mat-card>
     <mat-card-content>
-      <h1>DESTINATAIRE</h1>
+      <h1>EXPEDITEUR</h1>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
@@ -15,14 +22,14 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <p>Destinataire : {{ user.attributes.shipperAddress | uppercase }}</p>
-      <p>Destinataire :{{ user.attributes.shipperPhone }}</p>
+      <p>Adresse : {{ user.attributes.shipperAddress | uppercase }}</p>
+      <p>Téléphone : {{ user.attributes.shipperPhone }}</p>
     </mat-card-content>
   </mat-card>
 
   <mat-card>
     <mat-card-content>
-      <h1>EXPEDITEUR</h1>
+      <h1>DESTINATAIRE</h1>
     </mat-card-content>
   </mat-card>
   <mat-card class="card">
@@ -36,8 +43,8 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <p>Destinataire : {{ user.attributes.recipientAddress | uppercase }}</p>
-      <p>Destinataire :{{ user.attributes.recipientPhone }}</p>
+      <p>Adresse : {{ user.attributes.recipientAddress | uppercase }}</p>
+      <p>Téléphone : {{ user.attributes.recipientPhone }}</p>
     </mat-card-content>
   </mat-card>
 
@@ -54,7 +61,21 @@
     />
   </div>
 
-  <button mat-raised-button (click)="generatePdf()" color="primary">
-    download
+  <!-- <button mat-raised-button (click)="generateFacture(user)" color="primary">
+    Bordereau de Livraison
+  </button> -->
+
+  <button mat-raised-button (click)="makePDF(user)" color="primary">
+    Bordereau de Livraison
   </button>
 </div>
+
+
+</ng-template>
+
+
+
+<ng-template  #bl>
+<app-bordereau-de-livraison [user]="selectedClient" ></app-bordereau-de-livraison>
+  </ng-template>
+

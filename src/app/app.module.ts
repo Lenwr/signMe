@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 
 import { AppComponent } from './app.component'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { FormulaireComponent } from './views/formulaire/formulaire.component'
 import { ClientsComponent } from './views/clients/clients.component'
 import { RouterOutlet } from '@angular/router'
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FormRoutingModule } from '../routes/form-routing.module'
 import { HttpClientModule } from '@angular/common/http'
 import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular'
@@ -19,16 +20,17 @@ import { MatCardModule } from '@angular/material/card'
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
+import { MatRadioModule } from '@angular/material/radio'
 import {
   MatFormFieldModule,
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field'
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from "@angular/material/sidenav";
-import { NavComponent } from './views/nav/nav.component';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import { TestComponent } from './test/test.component';
-
+import { MatButtonModule } from '@angular/material/button'
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { NavComponent } from './views/nav/nav.component'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { TestComponent } from './test/test.component'
+import { BordereauDeLivraisonComponent } from './views/bordereau-de-livraison/bordereau-de-livraison.component'
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { TestComponent } from './test/test.component';
     ClientDetailsComponent,
     NavComponent,
     TestComponent,
+    BordereauDeLivraisonComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,9 @@ import { TestComponent } from './test/test.component';
     MatSidenavModule,
     MatToolbarModule,
     ReactiveFormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatRadioModule,
   ],
   providers: [
     {

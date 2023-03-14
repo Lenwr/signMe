@@ -1,0 +1,72 @@
+<div class="global">
+  <div class="container" id="content" #content>
+    <div class="date">
+      <p>{{ date | date: 'fullDate' | uppercase }}</p>
+    </div>
+    <div class="bl">
+      <div class="aaronTravel">
+        <p>AARON TRAVEL</p>
+        <p>15 Rue des Ecoles 95500 le Thillay</p>
+        <p>Tel : +33 60 36 75 062</p>
+      </div>
+      <div class="pms">
+        <h1>Bordereau de livraison</h1>
+        <h3>REF : PMS-{{ pms }}</h3>
+      </div>
+    </div>
+    <div class="headContainer">
+      <div class="headLeft">
+        <h3>Expéditeur</h3>
+        <p>Nom : {{ user.attributes.shipperName }}</p>
+        <p>Prénom : {{ user.attributes.shipperSurname }}</p>
+        <p>Adresse : {{ user.attributes.shipperAddress }}</p>
+        <p>Téléphone: {{ user.attributes.shipperPhone }}</p>
+      </div>
+
+      <div class="headRight">
+        <h3>Destinataire</h3>
+        <p>Nom : {{ user.attributes.recipientName }}</p>
+        <p>Prénom : {{ user.attributes.recipientSurname }}</p>
+        <p>Adresse : {{ user.attributes.recipientAddress }}</p>
+        <p>Téléphone: {{ user.attributes.recipientPhone }}</p>
+      </div>
+    </div>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Qte</th>
+            <th class="designation">Designation</th>
+            <th class="price">Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{{ user.attributes.cardBoardQuantity }}</td>
+            <td>Cartons standard</td>
+            <td>{{ 120 * user.attributes.cardBoardQuantity }} Euro</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td></td>
+          <td>Total</td>
+          <td>- - -</td>
+        </tfoot>
+      </table>
+    </div>
+    <div class="footContainer">
+      <div class="observation">
+        <h3>Observations</h3>
+      </div>
+      <div class="cachet">
+        <h3>CACHET</h3>
+        <h3>SI</h3>
+        <h3>SOLDÉ</h3>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button (click)="makePDF()" color="primary">
+    Télécharger
+  </button>
+</div>

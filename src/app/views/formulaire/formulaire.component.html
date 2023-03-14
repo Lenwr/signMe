@@ -4,7 +4,7 @@
   <div class="options">
     <h2>En quoi on peut vous aider ?</h2>
     <mat-hint>
-      <iframe src="https://embed.lottiefiles.com/animation/76251"></iframe>
+      <iframe src="https://embed.lottiefiles.com/animation/110403"></iframe>
     </mat-hint>
     <mat-form-field appearance="fill">
       <mat-label class="label">Choisir</mat-label>
@@ -37,7 +37,6 @@
           formControlName="shipperName"
           type="text"
           class="form-control"
-          h
           id="nom"
           placeholder="Nom"
         />
@@ -128,50 +127,94 @@
           <div class="col">
             <h2 class="destinataire">Mes colis</h2>
 
-            <div class="col">
-              <label for="coli">Descriptif colis</label>
-              <textarea
-                formControlName="description"
+            <div class="slide">
+              <section class="radioDescriptionSection">
+                <span>
+                  Avez vous des cartons de taille standard Aaronn travel ?
+                </span>
+                <span>non</span>
+
+                <mat-slide-toggle
+                  class="slideToggleCardBoard"
+                  (click)="showCardBoard()"
+                ></mat-slide-toggle>
+                <span>oui</span>
+              </section>
+            </div>
+
+            <div *ngIf="showCardBoardBool" class="cardBoard">
+              <input
+                formControlName="cardBoardQuantity"
+                type="number"
+                id="nombreDeCarton"
                 class="form-control"
-                id="coli"
-                placeholder="Quelles sont les colis que vous avez amenez ?"
-                rows="4"
-              ></textarea>
+                placeholder="Vous en avez combien ?"
+                [value]=""
+              />
+            </div>
+
+            <div class="slide">
+              <section class="radioDescriptionSection">
+                <span>Avez vous des petits colis ?</span>
+                <span>non</span>
+
+                <mat-slide-toggle
+                  class="slideToggleDescription"
+                  (click)="showDescription()"
+                ></mat-slide-toggle>
+                <span>oui</span>
+              </section>
+            </div>
+            <div class="col" *ngIf="showDescriptionBool">
+              <div class="petitsColis">
+                <label for="coli">Descriptif colis</label>
+                <textarea
+                  formControlName="description"
+                  class="form-control"
+                  id="coli"
+                  placeholder="Quelles sont les colis que vous avez amenez ?"
+                  rows="4"
+                ></textarea>
+              </div>
+
               <div class="col">
-                <label for="nombreColi">Nombre de colis</label>
+                <label for="nombreColi">Nombre Total de colis</label>
                 <input
                   formControlName="packageQuantity"
                   type="number"
                   id="nombreColi"
                   class="form-control"
-                  placeholder="Vous avez combien de colis ?"
+                  placeholder="Vous avez combien de colis en tout ?"
                   [value]=""
                 />
               </div>
-              <label for="image">Ajouter une photo</label>
 
-              <input
-                class="form-control form-control-sm"
-                id="image"
-                type="file"
-                formControlName="pictures"
-                accept="image/*"
-                multiple
-                (change)="onFileSelected($event)"
-              />
-              <br />
+              <!--     <label for="image">Ajouter une photo</label>
 
-              <div class="image">
-                <input
-                  id="images"
-                  type="image"
-                  accept="image/*"
-                  ngModel
-                  name="pictures"
-                  *ngFor="let url of urls"
-                  [src]="url"
-                />
-              </div>
+                  <input
+                    class="form-control form-control-sm"
+                    id="image"
+                    type="file"
+                    accept="image/*"
+                    formControlName="images"
+                    multiple
+                    (change)="onFileSelected($event)"
+                  />
+                  <br />
+
+                 <div class="imageDiv">
+                    <input
+                      id="images"
+                      type="image"
+                      accept="image/*"
+                      ngModel
+                      [value]="url"
+                      *ngFor="let url of urls"
+                      [src]="url"
+                      [value]="url"
+                    />
+                  </div>
+                  -->
             </div>
           </div>
           <div class="submit">
