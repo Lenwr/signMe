@@ -8,7 +8,7 @@ import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field'
 import { HttpClient } from '@angular/common/http'
-import { FormControl, Validators } from '@angular/forms'
+import {FormBuilder, FormControl, Validators} from '@angular/forms'
 interface Choice {
   name: string
   img: string
@@ -27,14 +27,37 @@ export class FormulaireComponent implements OnInit {
   selectedFile!: File
   selectedForm: boolean = false
   selectedForm2: boolean = false
+  showDescriptionBool: boolean = false
+  showCardBoardBool: boolean = false
+  // @ts-ignore
+  form: FormGroup
 
   constructor(
     private route: Router,
     private userData: UserDataService,
-    http: HttpClient,
+    private fb: FormBuilder,
   ) {}
 
+
+  initForm() {
+    this.form = this.fb.group({
+      shipperName: [null, Validators.required],
+      shipperSurname: [null, Validators.required],
+      shipperAddress: [null, Validators.required],
+      recipientAddress: [null, Validators.required],
+      shipperPhone: [null, Validators.required],
+      recipientPhone: [null, Validators.required],
+      packageDescription: [null, Validators.required],
+      destination: [null, Validators.required],
+      description: [null, Validators.required],
+      cardBoardQuantity: [null, Validators.required],
+      packageQuantity: [null, Validators.required],
+      recipientName: [null, Validators.required],
+      recipientSurname: [null, Validators.required],
+    })
+  }
   ngOnInit(): void {
+    this.initForm()
     this.sub.add(
       this.userData.customers().subscribe((data) => {
         this.customers = data
@@ -118,5 +141,21 @@ export class FormulaireComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe()
+  }
+
+  showDescription() {
+    this.showDescriptionBool = !this.showDescriptionBool
+  }
+  showCardBoard() {
+    this.showCardBoardBool = !this.showCardBoardBool
+  }
+
+  onSubmit() {
+    this.userData
+      .saveCustomer({ data: this.form.value })
+      .subscribe((response) => {
+        console.log(response)
+        this.form.reset()
+      })
   }
 }

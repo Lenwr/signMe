@@ -1,8 +1,10 @@
+
+
 .image{
   display: flex;
   flex-wrap: wrap;
 }
-img{
+#imageDiv{
   width: 150px;
   height: 150px;
   margin: 10px;
@@ -26,4 +28,40 @@ mat-label{
 iframe{
   width: 400px;
   height: 400px;
+}
+.submit{
+  display: flex;
+  justify-content: center;
+}
+.submit button{
+  margin: 20px;
+
+}
+
+.radioDescriptionMargin{
+  padding-top: 10px;
+}
+.radioDescriptionSection {
+  background-color: black;
+  margin-top: 10px ;
+  margin-bottom: 10px ;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+
+}
+.radioDescriptionSection span{
+  margin: 10px;
+}
+.radioDescriptionSection mat-slide-toggle{
+  margin: 10px;
+}
+.slide{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.cardBoard input{
+  margin: 10px;
 }

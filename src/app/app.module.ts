@@ -27,6 +27,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { NavComponent } from './views/nav/nav.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 @NgModule({
@@ -37,28 +38,29 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     ClientDetailsComponent,
     NavComponent,
   ],
-  imports: [
-    BrowserModule,
-    NoopAnimationsModule,
-    RouterOutlet,
-    FormsModule,
-    FormRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    RouterOutlet,
-    ApolloModule,
-    MatTableModule,
-    MatIconModule,
-    MatCardModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        NoopAnimationsModule,
+        RouterOutlet,
+        FormsModule,
+        FormRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        RouterOutlet,
+        ApolloModule,
+        MatTableModule,
+        MatIconModule,
+        MatCardModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        ReactiveFormsModule,
+        MatSlideToggleModule,
+    ],
   providers: [
     {
       provide: APOLLO_OPTIONS,

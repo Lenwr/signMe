@@ -28,20 +28,15 @@
 
 <ng-template #expedition>
   <div class="container">
-    <form
-      #usersForm="ngForm"
-      (ngSubmit)="sendCustomersFormData(usersForm.value)"
-    >
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <h1>Formulaire d'enrégistrement</h1>
       <div class="col">
         <h2 class="expediteur">EXPEDITEUR</h2>
         <label for="nom">Nom</label>
         <input
-          ngModel
-          name="shipperName"
+          formControlName="shipperName"
           type="text"
           class="form-control"
-          h
           id="nom"
           placeholder="Nom"
         />
@@ -50,8 +45,7 @@
         <div class="col">
           <label for="prenom">Prenoms</label>
           <input
-            ngModel
-            name="shipperSurname"
+            formControlName="shipperSurname"
             type="text"
             id="prenom"
             class="form-control"
@@ -61,8 +55,7 @@
         <div class="form-group">
           <label for="shipperAddress">Adresse</label>
           <input
-            ngModel
-            name="shipperAddress"
+            formControlName="shipperAddress"
             type="text"
             class="form-control"
             id="shipperAddress"
@@ -70,8 +63,7 @@
           />
           <label for="shipperPhone">Téléphone</label>
           <input
-            ngModel
-            name="shipperPhone"
+            formControlName="shipperPhone"
             type="number"
             value=""
             class="form-control"
@@ -83,8 +75,7 @@
           <h2 class="expediteur">DESTINATAIRE</h2>
           <label for="nom">Nom</label>
           <input
-            ngModel
-            name="recipientName"
+            formControlName="recipientName"
             type="text"
             class="form-control"
             id="recipientName"
@@ -95,8 +86,7 @@
           <div class="col">
             <label for="prenom">Prenoms</label>
             <input
-              ngModel
-              name="recipientSurname"
+              formControlName="recipientSurname"
               type="text"
               id="recipientSurname"
               class="form-control"
@@ -106,8 +96,7 @@
           <div class="form-group">
             <label for="recipientAddress">Adresse</label>
             <input
-              ngModel
-              name="recipientAddress"
+              formControlName="recipientAddress"
               type="text"
               class="form-control"
               id="recipientAddress"
@@ -115,8 +104,7 @@
             />
             <label for="recipientPhone">Téléphone</label>
             <input
-              ngModel
-              name="recipientPhone"
+              formControlName="recipientPhone"
               type="number"
               value=""
               class="form-control"
@@ -127,8 +115,7 @@
             <div class="col">
               <label for="Destination">Destination</label>
               <input
-                ngModel
-                name="destination"
+                formControlName="destination"
                 type="text"
                 id="destination"
                 class="form-control"
@@ -140,56 +127,101 @@
           <div class="col">
             <h2 class="destinataire">Mes colis</h2>
 
-            <div class="col">
-              <label for="coli">Descriptif colis</label>
-              <textarea
-                ngModel
-                name="description"
+            <div class="slide">
+              <section class="radioDescriptionSection">
+                <span>
+                  Avez vous des cartons de taille standard Aaronn travel ?
+                </span>
+                <span>non</span>
+
+                <mat-slide-toggle
+                  class="slideToggleCardBoard"
+                  (click)="showCardBoard()"
+                ></mat-slide-toggle>
+                <span>oui</span>
+              </section>
+            </div>
+
+            <div *ngIf="showCardBoardBool" class="cardBoard">
+              <input
+                formControlName="cardBoardQuantity"
+                type="number"
+                id="nombreDeCarton"
                 class="form-control"
-                id="coli"
-                placeholder="Quelles sont les colis que vous avez amenez ?"
-                rows="4"
-              ></textarea>
+                placeholder="Vous en avez combien ?"
+                [value]=""
+              />
+            </div>
+
+            <div class="slide">
+              <section class="radioDescriptionSection">
+                <span>Avez vous des petits colis ?</span>
+                <span>non</span>
+
+                <mat-slide-toggle
+                  class="slideToggleDescription"
+                  (click)="showDescription()"
+                ></mat-slide-toggle>
+                <span>oui</span>
+              </section>
+            </div>
+            <div class="col" *ngIf="showDescriptionBool">
+              <div class="petitsColis">
+                <label for="coli">Descriptif colis</label>
+                <textarea
+                  formControlName="description"
+                  class="form-control"
+                  id="coli"
+                  placeholder="Quelles sont les colis que vous avez amenez ?"
+                  rows="4"
+                ></textarea>
+              </div>
+
               <div class="col">
-                <label for="nombreColi">Nombre de colis</label>
+                <label for="nombreColi">Nombre Total de colis</label>
                 <input
-                  ngModel
-                  name="packageQuantity"
+                  formControlName="packageQuantity"
                   type="number"
                   id="nombreColi"
                   class="form-control"
-                  placeholder="Vous avez combien de colis ?"
+                  placeholder="Vous avez combien de colis en tout ?"
                   [value]=""
                 />
               </div>
-              <label for="image">Ajouter une photo</label>
 
-              <input
-                class="form-control form-control-sm"
-                id="image"
-                type="file"
-                (change)="onselect($event)"
-                multiple
-              />
-              <br />
+              <!--     <label for="image">Ajouter une photo</label>
 
-              <div class="image">
-                <input
-                  id="images"
-                  type="image"
-                  accept="image/*"
-                  ngModel
-                  name="pictures"
-                  *ngFor="let url of urls"
-                  [src]="url"
-                  (click)="onFileSelected($event)"
-                />
-              </div>
+                  <input
+                    class="form-control form-control-sm"
+                    id="image"
+                    type="file"
+                    accept="image/*"
+                    formControlName="images"
+                    multiple
+                    (change)="onFileSelected($event)"
+                  />
+                  <br />
+
+                 <div class="imageDiv">
+                    <input
+                      id="images"
+                      type="image"
+                      accept="image/*"
+                      ngModel
+                      [value]="url"
+                      *ngFor="let url of urls"
+                      [src]="url"
+                      [value]="url"
+                    />
+                  </div>
+                  -->
             </div>
           </div>
-          <button type="submit" (click)="success()" class="btn btn-primary">
-            Soumettre
-          </button>
+          <div class="submit">
+            <button (click)="success()" class="btn btn-primary">
+              Soumettre
+            </button>
+          </div>
         </div>
       </div>
     </form>
