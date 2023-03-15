@@ -15,8 +15,8 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <p>Destinataire : {{ user.attributes.shipperAddress | uppercase }}</p>
-      <p>Destinataire :{{ user.attributes.shipperPhone }}</p>
+      <p>Adresse : {{ user.attributes.shipperAddress | uppercase }}</p>
+      <p>Téléphone :{{ user.attributes.shipperPhone }}</p>
     </mat-card-content>
   </mat-card>
 
@@ -36,25 +36,24 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <p>Destinataire : {{ user.attributes.recipientAddress | uppercase }}</p>
-      <p>Destinataire :{{ user.attributes.recipientPhone }}</p>
+      <p>Adresse : {{ user.attributes.recipientAddress | uppercase }}</p>
+      <p>Téléphone :{{ user.attributes.recipientPhone }}</p>
     </mat-card-content>
   </mat-card>
 
   <mat-card class="colis">
     <mat-card-content>
-      <h1>COLIS : {{ user.attributes.packageQuantity }}</h1>
+      <h1>Colis : {{ user.attributes.packageQuantity }}</h1>
     </mat-card-content>
   </mat-card>
-  <div class="imageCard" *ngFor="let picture of user.attributes.pictures.data">
+  <div class="imageCard" *ngFor="let picture of user.attributes.pictures">
     <img
       class="images"
-      (click)="openPicture()"
       [src]="picture.attributes.url"
     />
   </div>
 
-  <button mat-raised-button (click)="generatePdf()" color="primary">
-    download
+  <button mat-raised-button (click)="makePDF(user)" color="primary">
+    Bordereau de livraison
   </button>
 </div>
