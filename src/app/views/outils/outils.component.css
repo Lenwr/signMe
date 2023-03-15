@@ -1,0 +1,19 @@
+.container{
+margin-top: 10px;
+
+}
+.containerForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerForm input {
+  margin: 10px;
+}
+
+.outils{
+  border-radius: 10px;
+}
+button{
+  margin: 20px;
+}

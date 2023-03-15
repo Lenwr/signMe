@@ -28,6 +28,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import { NavComponent } from './views/nav/nav.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { OutilsComponent } from './views/outils/outils.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @NgModule({
@@ -37,30 +39,32 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     ClientsComponent,
     ClientDetailsComponent,
     NavComponent,
+    OutilsComponent,
   ],
-    imports: [
-        BrowserModule,
-        NoopAnimationsModule,
-        RouterOutlet,
-        FormsModule,
-        FormRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        RouterOutlet,
-        ApolloModule,
-        MatTableModule,
-        MatIconModule,
-        MatCardModule,
-        MatGridListModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        ReactiveFormsModule,
-        MatSlideToggleModule,
-    ],
+  imports: [
+    BrowserModule,
+    NoopAnimationsModule,
+    RouterOutlet,
+    FormsModule,
+    FormRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    RouterOutlet,
+    ApolloModule,
+    MatTableModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatExpansionModule,
+  ],
   providers: [
     {
       provide: APOLLO_OPTIONS,

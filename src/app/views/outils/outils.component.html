@@ -1,0 +1,41 @@
+<div class="container">
+<mat-accordion  multi>
+  <mat-expansion-panel class="outils">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Calculateur de volume
+      </mat-panel-title>
+      <mat-panel-description>
+
+        <mat-icon>touch_app</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+
+    <form>
+
+      <div class="form-group">
+        <div class="containerForm">
+          <label for="valeur1">Valeur 1</label>
+          <input type="number" class="form-control" id="valeur1" placeholder="Entrer une valeur" value="">
+          <small id="valeur_1" class="form-text text-muted"></small>
+          <label for="valeur1">Valeur 2</label>
+          <input type="number" class="form-control" id="valeur2" placeholder="Entrer une valeur" value="">
+          <small id="valeur_2" class="form-text text-muted"></small>
+          <label for="valeur1">Valeur 3</label>
+          <input type="number" class="form-control" id="valeur3" placeholder="Entrer une valeur" value="">
+          <small id="valeur_3" class="form-text text-muted"></small>
+          <label for="pu">Prix unitaire </label>
+          <input type="number" class="form-control" id="pu" placeholder="Entrer une valeur" value="">
+          <button type="submit" class="btn btn-primary" (click)="volume()">Prix au volume</button>
+          <label for="volume"></label>
+          <input type="text" class="form-control" id="volume" placeholder="volume" readonly value="">
+
+        </div>
+      </div>
+    </form>
+
+  </mat-expansion-panel>
+
+</mat-accordion>
+</div>
