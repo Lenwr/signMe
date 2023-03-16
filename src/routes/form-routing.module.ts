@@ -5,6 +5,7 @@ import {FormulaireComponent} from "../app/views/formulaire/formulaire.component"
 import {OutilsComponent} from "../app/views/outils/outils.component";
 import {FactureComponent} from "../app/views/facture/facture.component";
 import {LivraisonColisComponent} from "../app/views/livraison-colis/livraison-colis.component";
+import {ExpeditionColisComponent} from "../app/views/expedition-colis/expedition-colis.component";
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'formulaire', component: FormulaireComponent },
   { path: 'outils', component: OutilsComponent },
   { path: 'facture', component: FactureComponent },
-  { path: 'livraisonColis', component: LivraisonColisComponent }
+  { path: 'livraisonColis', component: LivraisonColisComponent },
+  { path: 'expeditionColis', component: ExpeditionColisComponent }
 ]
 
 @NgModule({

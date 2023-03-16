@@ -1,0 +1,200 @@
+
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h1>Formulaire d'enrégistrement</h1>
+      <div class="col">
+        <h2 class="expediteur">EXPEDITEUR</h2>
+        <label for="nom">Nom</label>
+        <input
+          formControlName="shipperName"
+          type="text"
+          class="form-control"
+          id="nom"
+          placeholder="Nom"
+        />
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="prenom">Prenoms</label>
+          <input
+            formControlName="shipperSurname"
+            type="text"
+            id="prenom"
+            class="form-control"
+            placeholder="Prenoms"
+          />
+        </div>
+        <div class="form-group">
+          <label for="shipperAddress">Adresse</label>
+          <input
+            formControlName="shipperAddress"
+            type="text"
+            class="form-control"
+            id="shipperAddress"
+            placeholder="expediteur"
+          />
+          <label for="shipperPhone">Téléphone</label>
+          <input
+            formControlName="shipperPhone"
+            type="number"
+            value=""
+            class="form-control"
+            id="shipperPhone"
+          />
+        </div>
+
+        <div class="col">
+          <h2 class="expediteur">DESTINATAIRE</h2>
+          <label for="nom">Nom</label>
+          <input
+            formControlName="recipientName"
+            type="text"
+            class="form-control"
+            id="recipientName"
+            placeholder="Nom"
+          />
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <label for="prenom">Prenoms</label>
+            <input
+              formControlName="recipientSurname"
+              type="text"
+              id="recipientSurname"
+              class="form-control"
+              placeholder="Prenoms"
+            />
+          </div>
+          <div class="form-group">
+            <label for="recipientAddress">Adresse</label>
+            <input
+              formControlName="recipientAddress"
+              type="text"
+              class="form-control"
+              id="recipientAddress"
+              placeholder="destinataire"
+            />
+            <label for="recipientPhone">Téléphone</label>
+            <input
+              formControlName="recipientPhone"
+              type="number"
+              value=""
+              class="form-control"
+              id="recipientPhone"
+            />
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <label for="Destination">Destination</label>
+              <input
+                formControlName="destination"
+                type="text"
+                id="destination"
+                class="form-control"
+                placeholder="Pays de destination"
+              />
+            </div>
+          </div>
+
+          <div class="col">
+            <h2 class="destinataire">Mes colis</h2>
+
+            <div class="slide">
+              <section class="radioDescriptionSection">
+                <span>
+                  Avez vous des cartons de taille standard Aaronn travel ?
+                </span>
+                <span>non</span>
+
+                <mat-slide-toggle
+                  class="slideToggleCardBoard"
+                  (click)="showCardBoard()"
+                ></mat-slide-toggle>
+                <span>oui</span>
+              </section>
+            </div>
+
+            <div *ngIf="showCardBoardBool" class="cardBoard">
+              <input
+                formControlName="cardBoardQuantity"
+                type="number"
+                id="nombreDeCarton"
+                class="form-control"
+                placeholder="Vous en avez combien ?"
+                [value]=""
+              />
+            </div>
+
+            <div class="slide">
+              <section class="radioDescriptionSection">
+                <span>Avez vous des petits colis ?</span>
+                <span>non</span>
+
+                <mat-slide-toggle
+                  class="slideToggleDescription"
+                  (click)="showDescription()"
+                ></mat-slide-toggle>
+                <span>oui</span>
+              </section>
+            </div>
+            <div class="col" *ngIf="showDescriptionBool">
+              <div class="petitsColis">
+                <label for="coli">Descriptif colis</label>
+                <textarea
+                  formControlName="description"
+                  class="form-control"
+                  id="coli"
+                  placeholder="Quelles sont les colis que vous avez amenez ?"
+                  rows="4"
+                ></textarea>
+              </div>
+
+              <div class="col">
+                <label for="nombreColi">Nombre Total de colis</label>
+                <input
+                  formControlName="packageQuantity"
+                  type="number"
+                  id="nombreColi"
+                  class="form-control"
+                  placeholder="Vous avez combien de colis en tout ?"
+                  [value]=""
+                />
+              </div>
+
+              <!--     <label for="image">Ajouter une photo</label>
+
+                  <input
+                    class="form-control form-control-sm"
+                    id="image"
+                    type="file"
+                    accept="image/*"
+                    formControlName="images"
+                    multiple
+                    (change)="onFileSelected($event)"
+                  />
+                  <br />
+
+                 <div class="imageDiv">
+                    <input
+                      id="images"
+                      type="image"
+                      accept="image/*"
+                      ngModel
+                      [value]="url"
+                      *ngFor="let url of urls"
+                      [src]="url"
+                      [value]="url"
+                    />
+                  </div>
+                  -->
+            </div>
+          </div>
+          <div class="submit">
+            <button (click)="success()" class="btn btn-primary">
+              Soumettre
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

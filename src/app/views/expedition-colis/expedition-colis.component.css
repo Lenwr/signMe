@@ -12,17 +12,7 @@
 label{
   margin-top: 10px;
 }
-.container{
-  background-color:darkgrey;
-  height: 100%;
-}
-.options{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 100px;
-  align-items: center;
-}
+
 
 mat-label{
   color: black

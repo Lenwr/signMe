@@ -32,6 +32,7 @@ import { OutilsComponent } from './views/outils/outils.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import { FactureComponent } from './views/facture/facture.component';
 import { LivraisonColisComponent } from './views/livraison-colis/livraison-colis.component';
+import { ExpeditionColisComponent } from './views/expedition-colis/expedition-colis.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { LivraisonColisComponent } from './views/livraison-colis/livraison-colis
     OutilsComponent,
     FactureComponent,
     LivraisonColisComponent,
+    ExpeditionColisComponent,
   ],
   imports: [
     BrowserModule,
