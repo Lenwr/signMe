@@ -69,3 +69,7 @@ mat-label{
 .cardBoard input{
   margin: 10px;
 }
+mat-card{
+  border-radius: 20px;
+  background-color: #212121;
+}
