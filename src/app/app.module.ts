@@ -30,6 +30,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { OutilsComponent } from './views/outils/outils.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { FactureComponent } from './views/facture/facture.component';
+import { LivraisonColisComponent } from './views/livraison-colis/livraison-colis.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     ClientDetailsComponent,
     NavComponent,
     OutilsComponent,
+    FactureComponent,
+    LivraisonColisComponent,
   ],
   imports: [
     BrowserModule,

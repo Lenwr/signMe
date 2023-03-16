@@ -126,9 +126,10 @@ export class FormulaireComponent implements OnInit {
     if (this.choiceControl.value?.name == 'Expedition de Colis') {
       this.selectedForm = true
     } else if (this.choiceControl.value?.name == 'Livraison de Colis') {
-      this.selectedForm2 = true
-    } else this.selectedForm = false
-
+      this.route.navigate(['livraisonColis'])
+    } if (this.choiceControl.value?.name == 'Déménagement') {
+      this.route.navigate(['facture'])
+    }
     console.log(this.choiceControl.value?.name)
   }
 
@@ -137,6 +138,7 @@ export class FormulaireComponent implements OnInit {
   Choices: Choice[] = [
     { name: 'Livraison de Colis', img: '/assets/icons/hinata.jpg' },
     { name: 'Expedition de Colis', img: '/assets/icons/hinata.jpg' },
+    { name: 'Déménagement', img: '/assets/icons/hinata.jpg' },
   ]
 
   ngOnDestroy(): void {

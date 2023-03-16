@@ -25,9 +25,11 @@ label{
 mat-label{
   color: black
 }
-iframe{
-  width: 400px;
-  height: 400px;
+.logo{
+  width: 250px;
+  height: 250px;
+  margin: 20px;
+  border-radius: 10px;
 }
 .submit{
   display: flex;
