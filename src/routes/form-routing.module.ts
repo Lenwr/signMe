@@ -6,6 +6,10 @@ import {OutilsComponent} from "../app/views/outils/outils.component";
 import {FactureComponent} from "../app/views/facture/facture.component";
 import {LivraisonColisComponent} from "../app/views/livraison-colis/livraison-colis.component";
 import {ExpeditionColisComponent} from "../app/views/expedition-colis/expedition-colis.component";
+import {SubmitPageComponent} from "../app/views/submit-page/submit-page.component";
+import {ConnexionComponent} from "../app/views/connexion/connexion.component";
+import {AuthGuard} from "../app/auth.guard";
+
 
 
 const routes: Routes = [
@@ -14,7 +18,9 @@ const routes: Routes = [
   { path: 'outils', component: OutilsComponent },
   { path: 'facture', component: FactureComponent },
   { path: 'livraisonColis', component: LivraisonColisComponent },
-  { path: 'expeditionColis', component: ExpeditionColisComponent }
+  { path: 'expeditionColis', component: ExpeditionColisComponent },
+  { path: 'submit', component: SubmitPageComponent },
+  { path: 'connexion', component: ConnexionComponent }
 ]
 
 @NgModule({

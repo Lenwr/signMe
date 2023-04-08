@@ -1,0 +1,12 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container video{
+  width: 300px;
+  height: 300px;
+}
+.container span{
+  height: 100px;
+}

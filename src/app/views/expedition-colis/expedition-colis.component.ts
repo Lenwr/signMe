@@ -28,26 +28,45 @@ export class ExpeditionColisComponent implements OnInit {
   constructor(
     private userData: UserDataService,
     private fb: FormBuilder,
-   ) {
+  ) {
   }
 
   initForm() {
     this.form = this.fb.group({
       shipperName: [null, Validators.required],
-      shipperSurname: [null, Validators.required],
-      shipperAddress: [null, Validators.required],
-      recipientAddress: [null, Validators.required],
-      shipperPhone: [null, Validators.required],
-      recipientPhone: [null, Validators.required],
-      packageDescription: [null, Validators.required],
-      destination: [null, Validators.required],
-      description: [null, Validators.required],
-      cardBoardQuantity: [null, Validators.required],
-      packageQuantity: [null, Validators.required],
-      recipientName: [null, Validators.required],
-      recipientSurname: [null, Validators.required],
-    })
-  }  ngOnInit(): void {
+      shipperSurname: [null, ],
+      shipperAddress: [null, ],
+      recipientAddress: [null],
+      shipperPhone: [null , Validators.required],
+      recipientPhone:[null , Validators.required],
+      packageDescription: [null],
+      destination: [null],
+      description: [null],
+      cardBoardQuantity: [null ],
+      packageQuantity: [null , Validators.required],
+      recipientName: [null],
+      recipientSurname: [null],
+    });
+    this.form.patchValue({
+      shipperName: '',
+      shipperSurname: '',
+      shipperAddress: '',
+      recipientAddress: '',
+      shipperPhone: '',
+      recipientPhone:'',
+      packageDescription: '',
+      destination: '',
+      description: '',
+      cardBoardQuantity: '0',
+      recipientName: '',
+      recipientSurname: '',
+    });
+  };
+
+
+
+
+  ngOnInit(): void {
     this.initForm()
     this.sub.add(
       this.userData.customers().subscribe((data) => {
@@ -100,7 +119,7 @@ export class ExpeditionColisComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userData
+this.userData
       .saveCustomer({ data: this.form.value })
       .subscribe((response) => {
         console.log(response)

@@ -1,0 +1,43 @@
+
+<div class="container">
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <h1>Formulaire de connexion</h1>
+    <h2 class="nom">CONNEXION</h2>
+
+    <div class="col">
+
+      <label for="email">Identifiant</label>
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Nom"
+      />
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="password">password</label>
+        <input
+          formControlName="password"
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="password"
+        />
+        </div>
+        <div class="submit">
+          <button (click)="login()"   class="btn btn-primary" *ngIf="!auth?.isLoggedIn" >
+          connexion
+        </button>
+          <button (click)="logout()"   class="btn btn-primary" *ngIf="auth?.isLoggedIn">
+            se deconnecter
+          </button>
+        </div>
+      <div >
+        <p>{{message}}</p>
+      </div>
+      </div>
+
+  </form>
+</div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
@@ -33,6 +34,9 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import { FactureComponent } from './views/facture/facture.component';
 import { LivraisonColisComponent } from './views/livraison-colis/livraison-colis.component';
 import { ExpeditionColisComponent } from './views/expedition-colis/expedition-colis.component';
+import { SubmitPageComponent } from './views/submit-page/submit-page.component';
+import { ConnexionComponent } from './views/connexion/connexion.component';
+
 
 
 @NgModule({
@@ -46,6 +50,8 @@ import { ExpeditionColisComponent } from './views/expedition-colis/expedition-co
     FactureComponent,
     LivraisonColisComponent,
     ExpeditionColisComponent,
+    SubmitPageComponent,
+    ConnexionComponent,
   ],
   imports: [
     BrowserModule,

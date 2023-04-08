@@ -9,6 +9,7 @@ export class UserDataService {
   url = environment.apiUrl + '/clients'
   URL = environment.apiUrl + '/clients?populate=*'
   userUrl = environment.apiUrl + '/clients:id'
+  authUrl = environment.apiUrl + '/auth/local'
 
   constructor(private http: HttpClient) { }
 
@@ -24,5 +25,9 @@ export class UserDataService {
   }
   saveCustomer(data : any){
     return this.http.post<any>(this.url, data)
+  }
+  authenticate(data: any){
+   return this.http
+      .post<any>(this.authUrl, data)
   }
 }
