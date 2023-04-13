@@ -27,12 +27,9 @@
         />
         </div>
         <div class="submit">
-          <button (click)="login()"   class="btn btn-primary" *ngIf="!auth?.isLoggedIn" >
+          <button  class="btn btn-primary" *ngIf="!auth?.isLoggedIn" >
           connexion
         </button>
-          <button (click)="logout()"   class="btn btn-primary" *ngIf="auth?.isLoggedIn">
-            se deconnecter
-          </button>
         </div>
       <div >
         <p>{{message}}</p>

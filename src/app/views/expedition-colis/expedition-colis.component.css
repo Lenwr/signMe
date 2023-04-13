@@ -1,5 +1,9 @@
 
-
+.container{
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .image{
   display: flex;
   flex-wrap: wrap;
@@ -59,3 +63,4 @@ mat-label{
 .cardBoard input{
   margin: 10px;
 }
+

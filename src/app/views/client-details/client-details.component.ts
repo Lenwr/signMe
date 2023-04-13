@@ -11,6 +11,8 @@ import {jsPDF} from "jspdf";
 export class ClientDetailsComponent implements OnInit {
 
   @Input() user?: any
+
+  texteCS: string = 'Carton standard '
   pms: any
   cartonQuantite: any
 
@@ -83,7 +85,7 @@ export class ClientDetailsComponent implements OnInit {
     pdf.text('Qté  ', 22,90 )
     pdf.text("", 24,98 )
     pdf.text('Description  ', 35,90 )
-    pdf.text('Carton standard  ', 35,98 )
+    pdf.text(this.texteCS, 35,98 )
     pdf.text(this.user.attributes.description, 35,104 )
     pdf.text('P.U.  ', 154, 90)
     pdf.text('120  ', 154, 98)

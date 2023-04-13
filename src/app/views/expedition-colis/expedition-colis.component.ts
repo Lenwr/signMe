@@ -16,6 +16,8 @@ export class ExpeditionColisComponent implements OnInit {
 
 
   sub = new Subscription()
+
+
   customers: any
   urls: string[] = []
   url = environment.apiUrl + '/clients'
@@ -28,6 +30,7 @@ export class ExpeditionColisComponent implements OnInit {
   constructor(
     private userData: UserDataService,
     private fb: FormBuilder,
+    private router : Router
   ) {
   }
 
@@ -124,6 +127,7 @@ this.userData
       .subscribe((response) => {
         console.log(response)
         this.form.reset()
+        this.router.navigate(['submit'])
       })
   }
 

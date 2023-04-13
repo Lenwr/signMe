@@ -13,14 +13,15 @@ import {AuthGuard} from "../app/auth.guard";
 
 
 const routes: Routes = [
-  { path: 'clients', component: ClientsComponent },
-  { path: 'formulaire', component: FormulaireComponent },
-  { path: 'outils', component: OutilsComponent },
-  { path: 'facture', component: FactureComponent },
-  { path: 'livraisonColis', component: LivraisonColisComponent },
-  { path: 'expeditionColis', component: ExpeditionColisComponent },
-  { path: 'submit', component: SubmitPageComponent },
-  { path: 'connexion', component: ConnexionComponent }
+  {path: '', redirectTo: 'formulaire', pathMatch: "full"},
+  { path: 'clients', component: ClientsComponent , canActivate: [AuthGuard]},
+  { path: 'formulaire', component: FormulaireComponent},
+  { path: 'outils', component: OutilsComponent , canActivate: [AuthGuard]},
+  { path: 'facture', component: FactureComponent , canActivate: [AuthGuard]},
+  { path: 'livraisonColis', component: LivraisonColisComponent , canActivate: [AuthGuard]},
+  { path: 'expeditionColis', component: ExpeditionColisComponent  },
+  { path: 'submit', component: SubmitPageComponent , },
+  { path: 'connexion', component: ConnexionComponent}
 ]
 
 @NgModule({

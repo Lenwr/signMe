@@ -14,6 +14,7 @@ export class ConnexionComponent implements OnInit {
   sub = new Subscription()
   message : string = ''
   form!: FormGroup
+  private tokenKey = '';
 
   auth?: AuthService ;
   constructor(
@@ -43,14 +44,12 @@ export class ConnexionComponent implements OnInit {
       identifier: this.form.value.email,
       password: this.form.value.password}
     ).subscribe( (response) =>{
-      console.log('User profile', response.user);
-      console.log('User token', response.jwt);
+      this.tokenKey = response.jwt
+      console.log(this.tokenKey)
+    });
 
-    })
-  }
-
-  login(){
     this.message = 'Tentative de connexion en cours . . . ',
+
       this.authService.login(this.form.value.email ,this.form.value.password )
         .subscribe((isLoggedIn : boolean) => {
           this.setMessage();
@@ -61,12 +60,8 @@ export class ConnexionComponent implements OnInit {
             this.router.navigate(['/connexion'])
           }
         })
+  }
 
-  }
-  logout() {
-   this.authService.logout();
-   this.message = "Vous êtes déconnecté";
-  }
   setMessage(){
      if(this.authService.isLoggedIn){
        this.message = 'Vous êtes connecté'
@@ -75,6 +70,23 @@ export class ConnexionComponent implements OnInit {
      }
   }
 
+
+
+  //token
+
+
+
+  setToken(token: string): void {
+    localStorage.setItem(this.tokenKey, token);
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem(this.tokenKey);
+  }
+
+  removeToken(): void {
+    localStorage.removeItem(this.tokenKey);
+  }
 
 
 }

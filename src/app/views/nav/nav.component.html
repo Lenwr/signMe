@@ -26,7 +26,11 @@
   </button>
   </a>
 
-
+  <a  *ngIf="check()" (click)="logout()" routerLinkActive="active">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </a>
 
 
 </mat-toolbar>

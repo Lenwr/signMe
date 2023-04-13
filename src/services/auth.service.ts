@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
 import {delay, Observable, of, tap} from "rxjs";
+import {Route, Router} from "@angular/router";
+import {environment} from "../environments/environment";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  authUrl = environment.apiUrl + '/auth/local'
 
-  constructor() { }
+  constructor(
+    private router : Router ,
+    private http: HttpClient
+  ) { }
 
   isLoggedIn : boolean = false ;
   redirectUrl : string = '';
@@ -20,7 +27,9 @@ export class AuthService {
   }
   logout(){
     this.isLoggedIn = false ;
+    this.router.navigate(['/connexion']);
   }
+
 
 }
 
